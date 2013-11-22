@@ -1,0 +1,12 @@
+.DS_Store
+*.tmproj
+*.sublime-*
+backups
+database.yml
+db/*.sqlite3
+doc/api
+doc/app
+log/*.log
+rerun.txt
+tmp/*
+tmp/**/*
