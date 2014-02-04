@@ -8,7 +8,7 @@ alias cdf='eval `osascript /Applications/OpenTerminal.app/Contents/Resources/Scr
 alias syncdb='bundle exec rake db:sync'
 alias pryrails='pry -r ./config/environment'
 alias rc='./script/console --irb=pry'
-alias syn='/Applications/Synergy.app/Contents/MacOS/Synergy &'
+alias syn='/Applications/Synergy.app/Contents/MacOS/Synergy & exit'
 alias touchapp='touch tmp/restart.txt'
 alias v='mvim'
 alias gr='gitresethard'
