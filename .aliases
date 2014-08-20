@@ -12,3 +12,7 @@ alias syn='/Applications/Synergy.app/Contents/MacOS/Synergy & exit'
 alias touchapp='touch tmp/restart.txt'
 alias v='mvim'
 alias gr='gitresethard'
+
+## directory traversal
+alias ..='cd ..'
+alias ...='cd ../..'

@@ -1,4 +1,3 @@
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export CDPATH=.:/Users/matte:/Users/matte/projects/git
 export EDITOR='mvim'
 export LESS='-R'
