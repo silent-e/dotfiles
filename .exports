@@ -1,5 +1,5 @@
 export CDPATH=.:/Users/matte:/Users/matte/projects/git
-export EDITOR='mvim'
+export EDITOR='mvim -f'
 export LESS='-RFX'
 export CLICOLOR=1
 export LSCOLORS=gxfxhxhxcxegedabagacad
