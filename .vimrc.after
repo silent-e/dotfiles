@@ -21,5 +21,18 @@ nnoremap <C-H> <C-W><C-H>
 
 let g:use_emmet_complete_tag = 1
 
+" CtrlP
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
+  \ 'file': '\.gif$\|\.png$\|\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
+  \ }
+nnoremap <C-b> :CtrlPBuffer<cr>
+
+let mapleader = " "
+
+au BufWritePost .vimrc so $MYVIMRC
+au BufWritePost .vimrc.after so $MYVIMRC
+
 autocmd BufWritePre * :%s/\s\+$//e
 
