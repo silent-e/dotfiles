@@ -13,6 +13,9 @@ alias touchapp='touch tmp/restart.txt'
 alias v='mvim'
 alias gr='gitresethard'
 
+# confirm and delete files created after using git mergetool
+alias delorig='find . -name *.orig | xargs -py rm'
+
 ## directory traversal
 alias ..='cd ..'
 alias ...='cd ../..'
