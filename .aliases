@@ -14,7 +14,7 @@ alias v='mvim'
 alias gr='gitresethard'
 
 # confirm and delete files created after using git mergetool
-alias delorig='find . -name *.orig | xargs -py rm'
+alias delorig='find . -name *.orig | xargs -pL1 rm'
 
 ## directory traversal
 alias ..='cd ..'
