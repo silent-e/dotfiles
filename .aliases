@@ -12,6 +12,7 @@ alias syn='/Applications/Synergy.app/Contents/MacOS/Synergy & exit'
 alias touchapp='touch tmp/restart.txt'
 alias v='mvim'
 alias gr='gitresethard'
+alias startsnap='cd ~/compare/files;imagesnap -d "Display iSight" -t 2 -q'
 
 # confirm and delete files created after using git mergetool
 alias delorig='find . -name *.orig | xargs -pL1 rm'
