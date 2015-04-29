@@ -1,6 +1,3 @@
-let mapleader = " "
-nnoremap <Space> <nop>
-
 colorscheme jellybeans+
 
 " linewrap always
