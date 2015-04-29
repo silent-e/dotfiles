@@ -1,3 +1,6 @@
+let mapleader = " "
+nnoremap <Space> <nop>
+
 colorscheme jellybeans+
 
 " linewrap always
@@ -21,6 +24,9 @@ nnoremap <C-H> <C-W><C-H>
 
 let g:use_emmet_complete_tag = 1
 
+" remove search highlighting
+nnoremap <leader>h :noh<cr>
+
 " CtrlP
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_custom_ignore = {
@@ -28,8 +34,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.gif$\|\.png$\|\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
   \ }
 nnoremap <C-b> :CtrlPBuffer<cr>
-
-let mapleader = " "
 
 au BufWritePost .vimrc so $MYVIMRC
 au BufWritePost .vimrc.after so $MYVIMRC
