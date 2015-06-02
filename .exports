@@ -1,4 +1,4 @@
-export CDPATH=.:/Users/matte:/Users/matte/projects/git
+export CDPATH=.:/Users/matte:/Users/matte/projects/git:/Users/matte/projects/git/silent-e
 export EDITOR='mvim -f'
 export LESS='-RFX'
 export CLICOLOR=1
