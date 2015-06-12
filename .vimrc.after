@@ -20,6 +20,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 let g:use_emmet_complete_tag = 1
+let g:netrw_liststyle=1
 
 " remove search highlighting
 nnoremap <leader>h :noh<cr>
