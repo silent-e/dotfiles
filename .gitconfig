@@ -24,6 +24,7 @@
   lc  = "!f() { git ll "$1"^.."$1"; }; f"
   diffr  = "!f() { git diff "$1"^.."$1"; }; f"
   logtree = log --graph --oneline --decorate --all
+  ls-subtrees = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d ":" -f2 | sort | uniq | xargs -I {} bash -c 'if [ -d $(git rev-parse --show-toplevel)/{} ] ; then echo {}; fi'"
 [color]
   ui = auto
 [color "branch"]
