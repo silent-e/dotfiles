@@ -3,7 +3,7 @@ colorscheme jellybeans+
 " linewrap always
 set wrap
 
-set guifont=Source\ Code\ Pro:h12
+set guifont=Hack\ Regular:h11
 
 " highlight current line
 set cul
