@@ -4,6 +4,7 @@ colorscheme jellybeans+
 set wrap
 
 set guifont=Hack\ Regular:h11
+" set guifont=Source\ Code\ Pro:h12
 
 " highlight current line
 set cul
