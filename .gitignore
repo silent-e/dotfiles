@@ -1,6 +1,7 @@
 .DS_Store
 *.tmproj
 *.sublime-*
+*.orig
 backups
 database.yml
 db/*.sqlite3
