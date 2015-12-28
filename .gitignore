@@ -8,6 +8,8 @@ db/*.sqlite3
 doc/api
 doc/app
 log/*.log
+node_modules
 rerun.txt
+.sass-cache
 tmp/*
 tmp/**/*
