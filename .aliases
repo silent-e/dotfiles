@@ -1,4 +1,6 @@
 alias be='bundle exec'
+alias histblock='export HISTIGNORE="*"'
+alias histunblock='unset HISTIGNORE'
 alias la='ls -a'
 alias ll='ls -al'
 alias ls='ls -G'
