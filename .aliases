@@ -16,6 +16,7 @@ alias touchapp='touch tmp/restart.txt'
 alias v='mvim'
 alias gr='gitresethard'
 alias startsnap='cd ~/compare/files;imagesnap -d "Display iSight" -t 2 -q'
+alias bfg="java -jar ~/bin/bfg-1.12.3.jar"
 
 # confirm and delete files created after using git mergetool
 alias delorig='find . -name *.orig | xargs -pL1 rm'
