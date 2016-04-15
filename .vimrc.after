@@ -41,3 +41,4 @@ au BufWritePost .vimrc.after so $MYVIMRC
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+au BufNewFile,BufRead *.install set filetype=php
