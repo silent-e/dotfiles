@@ -185,3 +185,6 @@ inoremap <S-Tab> <c-n>
 
 " Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDTrimTrailingWhitespace = 1
