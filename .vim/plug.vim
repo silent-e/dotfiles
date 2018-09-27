@@ -28,7 +28,7 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 " Plug 'xsbeats/vim-blade', { 'for': 'blade' }
 " Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'stanangeloff/php.vim', { 'for': 'php' }
+" Plug 'stanangeloff/php.vim', { 'for': 'php' }
 
 " Completion
 Plug 'mattn/emmet-vim', { 'for': 'html' }
@@ -79,12 +79,12 @@ Plug 'scrooloose/nerdcommenter'
 " Plug 'christoomey/vim-tmux-navigator'
 
 " Change brackets and quotes
-" Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " Make vim-surround repeatable with .
-" Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 
 " Indent PHP
-Plug '2072/php-indenting-for-vim'
+" Plug '2072/php-indenting-for-vim'
 
 " Custom motions
 
