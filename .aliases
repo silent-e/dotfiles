@@ -1,4 +1,5 @@
 alias be='bundle exec'
+alias ctags="`brew --prefix`/bin/ctags"
 alias gr='gitresethard'
 alias histblock='export HISTIGNORE="*"'
 alias histunblock='unset HISTIGNORE'
