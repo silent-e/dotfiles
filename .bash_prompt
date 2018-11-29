@@ -21,7 +21,7 @@ function parse_git_branch {
     git_status="$(git status 2> /dev/null)"
     git_stash="$(git stash list 2> /dev/null)"
     branch_pattern="^On branch ([^${IFS}]*)"
-    remote_pattern="Your branch is (ahead of|behind)"
+    remote_pattern="Your branch is (ahead of|behind)" #  (.*) by
     diverge_pattern="Your branch and (.*) have diverged"
     if [[ ! ${git_status}} =~ "working tree clean" ]]; then
         state="${RED}⚡"
@@ -31,7 +31,7 @@ function parse_git_branch {
     fi
     # add an else if or two here if you want to get more specific
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
-        if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+        if [[ ${BASH_REMATCH[1]} == "ahead of" ]]; then
             remote="${YELLOW}↑"
         else
             remote="${YELLOW}↓"

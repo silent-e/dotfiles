@@ -12,3 +12,6 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 eval "$(rbenv init -)"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
