@@ -19,9 +19,6 @@ set laststatus=2  " Always display the status line
 " ***********************
 syntax enable     " Turn on syntax highlighting allowing local overrides
 
-" drupal install files
-au BufNewFile,BufRead *.install set filetype=php
-
 " }}}-------------------------------------------------------------------------
 "   whitespace                                                            {{{
 " ----------------------------------------------------------------------------
@@ -29,11 +26,12 @@ au BufNewFile,BufRead *.install set filetype=php
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
-" set list                          " Show invisible characters
+set list                          " Show invisible characters
 
-" List chars
+" List chars - see :help listchars
 set listchars=""                  " Reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars=tab:\ \             " a tab should display as "  "
+" set listchars=tab:__            " a tab should display as "__"
 set listchars+=trail:.            " show trailing spaces as dots
 
 " }}}-------------------------------------------------------------------------

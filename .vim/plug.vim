@@ -25,8 +25,6 @@ Plug 'nanotech/jellybeans.vim'
 " Syntax
 " Plug 'tpope/vim-git', { 'for': 'git' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-" Plug 'xsbeats/vim-blade', { 'for': 'blade' }
-" Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " Plug 'stanangeloff/php.vim', { 'for': 'php' }
 
@@ -49,14 +47,17 @@ Plug 'tpope/vim-unimpaired'
 Plug 'bling/vim-airline'
 
 " Fuzzy file opener
-" Plug 'kien/ctrlp.vim' <-- Not maintained any more
 Plug 'ctrlpvim/ctrlp.vim'
 
 " netrw and enhancements
 Plug 'eiginn/netrw'
 Plug 'tpope/vim-vinegar'
 
+" searcher
 Plug 'rking/ag.vim'
+
+" tag support
+Plug 'majutsushi/tagbar'
 
 " Rename files from within vim
 " Plug 'tpope/vim-eunuch'
@@ -90,27 +91,16 @@ Plug 'tpope/vim-repeat'
 
 " Indent object
 " Plug 'michaeljsmith/vim-indent-object'
-" Camel Case object
-" Plug 'bkad/CamelCaseMotion'
 " Argumetn object
 " Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
 " Plug 'tpope/vim-fugitive'
 
-" Run Python tests in tmux splits
-" Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
-" Plug '~/projects/vim-vigilant', { 'for': 'python' }
 " Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
-
-" Python completion and tag navigation
-" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 " Take notes and keep todo lists in vim
 " Plug 'vimwiki/vimwiki'
-
-" Find the class/method based on cursor position
-" Plug 'vim-scripts/pythonhelper'
 
 " 'Vastly improved Javascript indentation and syntax support in Vim'
 " Plug 'pangloss/vim-javascript'
