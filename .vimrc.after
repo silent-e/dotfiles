@@ -31,6 +31,10 @@ set splitright
   nnoremap <D-F> :Ag<SPACE>
 " endif
 
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j " Delete comment character when joining commented lines
+endif
+
 " let g:use_emmet_complete_tag = 1
 let g:netrw_liststyle=1
 
@@ -188,3 +192,11 @@ map <D-/> <plug>NERDCommenterToggle<CR>
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
+
+" Always show at least one line above/below the cursor.
+if !&scrolloff
+  set scrolloff=3
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif

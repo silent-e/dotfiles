@@ -1,5 +1,6 @@
 alias be='bundle exec'
 alias ctags="`brew --prefix`/bin/ctags"
+alias gm-='git merge --no-ff -'
 alias gmj='gitmoji'
 alias gr='gitresethard'
 alias histblock='export HISTIGNORE="*"'
