@@ -1,0 +1,5 @@
+bootstrap.sh
+bootstrap_rsync_excludes.txt
+.DS_Store
+.git/
+.vim/plugged

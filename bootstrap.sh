@@ -3,19 +3,12 @@ cd "$(dirname "${BASH_SOURCE}")"
 #git pull origin master
 
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-    --exclude "laptop" --exclude "LICENSE-MIT.txt" \
-    --exclude ".vim/plugged" \
-    -av --no-perms . ~
+	rsync --exclude-from=bootstrap_rsync_excludes.txt -av --no-perms . ~
 	source ~/.bash_profile
 }
 
 function previewIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-    --exclude "laptop" --exclude "LICENSE-MIT.txt" \
-    --exclude ".vim/plugged" \
-    --dry-run \
-    -av --no-perms . ~
+	rsync --exclude-from=bootstrap_rsync_excludes.txt --dry-run -av --no-perms . ~
 	source ~/.bash_profile
 }
 
