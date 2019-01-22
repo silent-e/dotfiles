@@ -55,6 +55,7 @@ nnoremap <C-b> :CtrlPBuffer<cr>
 " autocmd BufWritePre * :%s/\s\+$//e
 
 au BufNewFile,BufRead *.install set filetype=php
+au BufNewFile,BufRead .pryrc set filetype=ruby
 
 
 " remap split nav to easier ctrl-[nav] jump commands
