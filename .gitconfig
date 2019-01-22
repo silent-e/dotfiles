@@ -38,6 +38,7 @@
   new = green bold
   whitespace = red reverse
 [merge]
+  ff = false
   tool = Kaleidoscope
   keepBackup = false
 [mergetool "p4merge"]
