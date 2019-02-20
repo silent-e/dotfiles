@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'tty-prompt'
+end
+
+choices = File.readlines(File.expand_path('~/.ssh/config')).grep(/Host\s/).collect { |line| line.chomp.split[1] }.reject { |host| host == '*' }.sort
+
+prompt = TTY::Prompt.new
+
+where_to = prompt.select("Where to?", choices, filter: true, per_page: choices.length)
+
+system("ssh #{where_to}")
