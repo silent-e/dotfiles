@@ -201,3 +201,6 @@ endif
 if !&sidescrolloff
   set sidescrolloff=5
 endif
+
+" leader mappings
+map <leader>tf4 :!NOCOLOR=true bundle exec m %<CR>
