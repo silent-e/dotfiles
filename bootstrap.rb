@@ -6,30 +6,29 @@ gemfile do
   source 'https://rubygems.org'
 
   gem 'awesome_print'
+  gem 'diffy'
+  gem 'pastel'
   gem 'tty-command'
+  gem 'tty-prompt'
 end
 
-command = TTY::Command.new(printer: :pretty)
+require_relative 'lib/bootstrap'
 
-command.run!(:rsync, '--exclude-from=bootstrap_rsync_excludes.txt', '--dry-run', '-ia', '--no-perms', '.', File.expand_path('~')).tap do |result|
-  if result.success?
-    files = result.collect { |line|
-      ap line
-      item = line.split(' ').last
-      ap item
-      next if FileTest.directory?(item)
-      item
-    }.compact
-  else
-  end
-  files.each do |file|
-    ap "diff for #{file}"
-    system("diff #{file} ~/#{file}")
-  end
+prompt = TTY::Prompt.new
+color = ::Pastel.new(enabled: true)
+
+bootstrapper = Bootstrap.new
+
+choices = %w[yes no list\ files preview]
+choice = prompt.enum_select(color.decorate('This may overwrite existing files in your home directory. Are you sure?', :red), choices)
+
+case choice
+when 'yes'
+  bootstrapper.do_sync
+when 'list files'
+  bootstrapper.list_files
+when 'preview'
+  bootstrapper.show_diffs
+else
+  puts color.decorate('Not doing anything', :green)
 end
-
-
-# run rsync
-# loop over results
-# if directory, next
-# if file, show diff
