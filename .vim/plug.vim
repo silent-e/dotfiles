@@ -96,7 +96,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
 
