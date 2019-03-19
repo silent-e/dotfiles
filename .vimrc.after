@@ -203,4 +203,4 @@ if !&sidescrolloff
 endif
 
 " leader mappings
-map <leader>tf4 :!NOCOLOR=true bundle exec m %<CR>
+" map <leader>tf4 :!NOCOLOR=true bundle exec m %<CR>

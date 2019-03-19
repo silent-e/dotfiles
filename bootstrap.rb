@@ -13,22 +13,27 @@ gemfile do
 end
 
 require_relative 'lib/bootstrap'
-
-prompt = TTY::Prompt.new
-color = ::Pastel.new(enabled: true)
-
 bootstrapper = Bootstrap.new
 
-choices = %w[yes no list\ files preview]
-choice = prompt.enum_select(color.decorate('This may overwrite existing files in your home directory. Are you sure?', :red), choices)
+if bootstrapper.changes.none?
+  puts 'Nothing to do'
+  exit
+end
 
-case choice
-when 'yes'
-  bootstrapper.do_sync
-when 'list files'
-  bootstrapper.list_files
-when 'preview'
-  bootstrapper.show_diffs
-else
-  puts color.decorate('Not doing anything', :green)
+loop do
+  choice = bootstrapper.ask_what_to_do
+
+  case choice
+  when 'sync'
+    bootstrapper.do_sync
+    break
+  when 'preview'
+    bootstrapper.show_diffs
+  when 'exit'
+    bootstrapper.stop
+    break
+  else
+    puts 'Unknown entry.  Exiting.'
+    break
+  end
 end
