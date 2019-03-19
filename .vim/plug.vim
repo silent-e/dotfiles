@@ -26,6 +26,7 @@ Plug 'nanotech/jellybeans.vim'
 " Plug 'tpope/vim-git', { 'for': 'git' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-rails' ", { 'for': 'ruby' }
 " Plug 'stanangeloff/php.vim', { 'for': 'php' }
 
 " Completion
@@ -95,7 +96,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
 

@@ -25,8 +25,10 @@ syntax enable     " Turn on syntax highlighting allowing local overrides
 
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set smarttab
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
+set display=truncate
 
 " List chars - see :help listchars
 set listchars=""                  " Reset the listchars

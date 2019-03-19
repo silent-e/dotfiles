@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+
+  gem 'awesome_print'
+  gem 'tty-prompt'
+end
+
+prompt = TTY::Prompt.new
+invalid_choices = Set.new(%w[* Host])
+choices = File.readlines(File.expand_path('~/.ssh/config')).grep(/Host\s/).collect { |line| line.chomp.split }.flatten.sort.to_set - invalid_choices
+
+where_to = prompt.select("Where to?", choices.to_a, filter: true, per_page: choices.length)
+
+system("ssh #{where_to}")
