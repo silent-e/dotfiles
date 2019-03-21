@@ -202,5 +202,16 @@ if !&sidescrolloff
   set sidescrolloff=5
 endif
 
-" leader mappings
+"= fugitive stuff
+
+" autoclean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" use `..` to go up a level if traversing a tree object
+autocmd User fugitive 
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+
+"= leader mappings
 " map <leader>tf4 :!NOCOLOR=true bundle exec m %<CR>
