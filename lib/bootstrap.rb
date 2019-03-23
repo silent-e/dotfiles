@@ -23,7 +23,8 @@ class Bootstrap
       if result.success?
         puts _color.decorate('Success!', :green)
       else
-        puts _color.decorate('Something went wrong!', :red)
+        puts _color.decorate("Something went wrong! Here's the error…", :red)
+        puts result.err
       end
     end
   end
