@@ -1,4 +1,9 @@
+" dark scheme
 colorscheme jellybeans
+" light scheme
+" set background=light
+"colorscheme solarized
+"colorscheme PaperColor
 
 " linewrap always
 set wrap
