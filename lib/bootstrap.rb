@@ -84,4 +84,10 @@ private
     @_prompt ||= TTY::Prompt.new
   end
 
+  def _update_spaceship_prompt
+    # TODO
+    # install if not installed
+    # update repo
+  end
+
 end
