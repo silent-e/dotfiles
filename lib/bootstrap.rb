@@ -54,6 +54,7 @@ private
 
   def _load_changes
     [].tap do |files|
+      # check for changed files
       _do_sync do |result|
         if !result.success?
           puts _color.decorate('Unable to get changed files', :red)
@@ -64,6 +65,12 @@ private
           files << line.split(' ').last if line[1] == 'f'
         end
       end
+
+      # check for updated spaceship prompt
+      Dir.chdir(File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt"))
+      puts 'Checking status of the prompt library'
+      _runner.run!(:git, 'fetch') { |result| ap result }
+      _runner.run!(:git, 'status', '--porcelain') { |result| ap result }
     end.compact
   end
 
@@ -72,16 +79,20 @@ private
   end
 
   def _do_sync(dry_run: true)
+    puts 'Checking status of changed files'
     dry_run_flag = dry_run ? '--dry-run' : ''
-    command = TTY::Command.new(printer: :null)
 
-    command.run!(:rsync, '--exclude-from=bootstrap_rsync_excludes.txt', dry_run_flag, '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
+    _runner.run!(:rsync, '--exclude-from=bootstrap_rsync_excludes.txt', dry_run_flag, '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
       yield result
     end
   end
 
   def _prompt
     @_prompt ||= TTY::Prompt.new
+  end
+
+  def _runner
+    @_runner ||= TTY::Command.new #(printer: :null)
   end
 
   def _update_spaceship_prompt
