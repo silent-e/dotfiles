@@ -70,7 +70,15 @@ private
       Dir.chdir(File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt"))
       puts 'Checking status of the prompt library'
       _runner.run!(:git, 'fetch') { |result| ap result }
-      _runner.run!(:git, 'status', '--porcelain') { |result| ap result }
+      result = _runner.run!(:git, 'status', '--porcelain')
+      ap result
+      if result.success?
+        if result.out.empty?
+          puts 'No updates to the Spaceship prompt.' 
+        else
+          puts 'The Spaceship prompt library has updated.'
+        end
+      end
     end.compact
   end
 
