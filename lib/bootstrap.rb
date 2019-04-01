@@ -67,18 +67,7 @@ private
       end
 
       # check for updated spaceship prompt
-      Dir.chdir(File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt"))
-      puts 'Checking status of the prompt library'
-      _runner.run!(:git, 'fetch') { |result| ap result }
-      result = _runner.run!(:git, 'status', '--porcelain')
-      ap result
-      if result.success?
-        if result.out.empty?
-          puts 'No updates to the Spaceship prompt.' 
-        else
-          puts 'The Spaceship prompt library has updated.'
-        end
-      end
+      _update_spaceship_prompt
     end.compact
   end
 
@@ -100,13 +89,41 @@ private
   end
 
   def _runner
-    @_runner ||= TTY::Command.new #(printer: :null)
+    @_runner ||= TTY::Command.new(printer: :null)
   end
 
   def _update_spaceship_prompt
-    # TODO
-    # install if not installed
-    # update repo
+    library_dir = File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt")
+    if !Dir.exists?(library_dir)
+      puts _color.decorate("The directory #{library_dir} does not exist", :red)
+      install_it = _prompt.select(_color.decorate("\nShould I install it?", :yellow)) do |menu|
+        menu.enum '.'
+        menu.choice 'Yes'
+        menu.choice 'No'
+      end
+
+      if install_it == 'Yes'
+        spinner = TTY::Spinner.new("[:spinner] Installing now …", format: :classic)
+        spinner.run('Done') do
+          _runner.run!("git clone https://github.com/denysdovhan/spaceship-prompt.git #{library_dir}")
+          _runner.run!("ln -s #{library_dir}/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme")
+        end
+      end
+    else
+      Dir.chdir(library_dir)
+      puts 'Checking status of the prompt library'
+      _runner.run!(:git, 'fetch') { |result| ap result }
+      result = _runner.run!(:git, 'status', '--porcelain')
+      ap result
+      if result.success?
+        if result.out.empty?
+          puts 'No updates to the Spaceship prompt.' 
+        else
+          puts 'The Spaceship prompt library has updated.'
+        end
+      end
+      # update repo
+    end
   end
 
 end
