@@ -111,9 +111,8 @@ private
         end
       end
     else
-      Dir.chdir(library_dir)
       puts 'Checking status of the prompt library'
-      _runner.run!(:git, 'fetch') { |result| ap result }
+      _runner.run!(:git, 'fetch', chdir: library_dir) { |result| ap result }
       result = _runner.run!(:git, 'status', '--porcelain')
       ap result
       if result.success?
@@ -123,7 +122,6 @@ private
           puts 'The Spaceship prompt library has updated.'
         end
       end
-      # update repo
     end
   end
 
