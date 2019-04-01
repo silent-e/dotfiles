@@ -11,7 +11,6 @@ alias ll='ls -al'
 alias ls='ls -G'
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 alias s='ssh_prompt'
-alias syn='/Applications/Synergy.app/Contents/MacOS/Synergy & exit'
 alias t='rails test'
 alias v='mvim'
 
@@ -19,5 +18,5 @@ alias v='mvim'
 alias delorig='find . -name *.orig | xargs -pL1 rm'
 
 ## directory traversal
-alias ..='cd ..'
-alias ...='cd ../..'
+#alias ..='cd ..'
+#alias ...='cd ../..'

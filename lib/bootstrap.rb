@@ -54,6 +54,7 @@ private
 
   def _load_changes
     [].tap do |files|
+      # check for changed files
       _do_sync do |result|
         if !result.success?
           puts _color.decorate('Unable to get changed files', :red)
@@ -64,6 +65,9 @@ private
           files << line.split(' ').last if line[1] == 'f'
         end
       end
+
+      # check for updated spaceship prompt
+      _update_spaceship_prompt
     end.compact
   end
 
@@ -72,16 +76,54 @@ private
   end
 
   def _do_sync(dry_run: true)
+    puts 'Checking status of changed files'
     dry_run_flag = dry_run ? '--dry-run' : ''
-    command = TTY::Command.new(printer: :null)
 
-    command.run!(:rsync, '--exclude-from=bootstrap_rsync_excludes.txt', dry_run_flag, '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
+    _runner.run!(:rsync, '--exclude-from=bootstrap_rsync_excludes.txt', dry_run_flag, '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
       yield result
     end
   end
 
   def _prompt
     @_prompt ||= TTY::Prompt.new
+  end
+
+  def _runner
+    @_runner ||= TTY::Command.new(printer: :null)
+  end
+
+  def _update_spaceship_prompt
+    library_dir = File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt")
+    if !Dir.exists?(library_dir)
+      puts _color.decorate("The directory #{library_dir} does not exist", :red)
+      install_it = _prompt.select(_color.decorate("\nShould I install it?", :yellow)) do |menu|
+        menu.enum '.'
+        menu.choice 'Yes'
+        menu.choice 'No'
+      end
+
+      if install_it == 'Yes'
+        spinner = TTY::Spinner.new("[:spinner] Installing now …", format: :classic)
+        spinner.run('Done') do
+          _runner.run!("git clone https://github.com/denysdovhan/spaceship-prompt.git #{library_dir}")
+          _runner.run!("ln -s #{library_dir}/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme")
+        end
+      end
+    else
+      Dir.chdir(library_dir)
+      puts 'Checking status of the prompt library'
+      _runner.run!(:git, 'fetch') { |result| ap result }
+      result = _runner.run!(:git, 'status', '--porcelain')
+      ap result
+      if result.success?
+        if result.out.empty?
+          puts 'No updates to the Spaceship prompt.' 
+        else
+          puts 'The Spaceship prompt library has updated.'
+        end
+      end
+      # update repo
+    end
   end
 
 end
