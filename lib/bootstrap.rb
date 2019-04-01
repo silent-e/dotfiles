@@ -77,9 +77,10 @@ private
 
   def _do_sync(dry_run: true)
     puts 'Checking status of changed files'
-    dry_run_flag = dry_run ? '--dry-run' : ''
+    dry_run_flag = dry_run ? '--dry-run' : nil
 
-    _runner.run!(:rsync, '--exclude-from=bootstrap_rsync_excludes.txt', dry_run_flag, '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
+    puts Dir.pwd
+    _runner.run!("rsync --exclude-from=bootstrap_rsync_excludes.txt #{dry_run_flag}", '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
       yield result
     end
   end
@@ -89,7 +90,7 @@ private
   end
 
   def _runner
-    @_runner ||= TTY::Command.new(printer: :null)
+    @_runner ||= TTY::Command.new #(printer: :null)
   end
 
   def _update_spaceship_prompt
