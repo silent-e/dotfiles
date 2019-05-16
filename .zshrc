@@ -76,7 +76,7 @@ SPACESHIP_DIR_TRUNC_REPO=false
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler git rbenv tmux tmuxinator)
+plugins=(bundler gem git history osx rails rbenv tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
