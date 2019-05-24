@@ -55,7 +55,8 @@ Plug 'eiginn/netrw'
 Plug 'tpope/vim-vinegar'
 
 " searcher
-Plug 'rking/ag.vim'
+" Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " tag support
 Plug 'majutsushi/tagbar'
