@@ -2,6 +2,6 @@ bootstrap.*
 bootstrap_rsync_excludes.txt
 .DS_Store
 .git/
+lib
 .ruby-version
 .vim/plugged
-lib

@@ -8,9 +8,21 @@ export ZSH="/Users/`whoami`/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="refined"
-ZSH_THEME="matte"
 # ZSH_THEME="random"
+# ZSH_THEME="matte"
+ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ORDER=(
+  user
+  dir
+  git
+  ruby
+  line_sep
+  jobs
+  exit_code
+  char
+)
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_REPO=false
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -64,7 +76,17 @@ ZSH_THEME="matte"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler git rbenv tmux tmuxinator)
+plugins=(
+  bundler
+  fzf
+  gem
+  git
+  history
+  osx
+  rbenv
+  tmux
+  tmuxinator
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,3 +126,5 @@ unset file
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

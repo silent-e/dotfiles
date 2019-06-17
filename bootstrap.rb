@@ -10,6 +10,7 @@ gemfile do
   gem 'pastel'
   gem 'tty-command'
   gem 'tty-prompt'
+  gem 'tty-spinner'
 end
 
 require_relative 'lib/bootstrap'

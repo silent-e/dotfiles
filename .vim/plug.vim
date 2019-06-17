@@ -30,7 +30,7 @@ Plug 'tpope/vim-rails' ", { 'for': 'ruby' }
 " Plug 'stanangeloff/php.vim', { 'for': 'php' }
 
 " Completion
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim', { 'for': ['scss', 'eruby', 'html'] }
 
 " Make % match xml tags
 " Plug 'edsono/vim-matchit', { 'for': ['html', 'xml'] }
@@ -55,7 +55,8 @@ Plug 'eiginn/netrw'
 Plug 'tpope/vim-vinegar'
 
 " searcher
-Plug 'rking/ag.vim'
+" Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " tag support
 Plug 'majutsushi/tagbar'
