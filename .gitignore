@@ -15,3 +15,4 @@ rerun.txt
 tags
 tmp/*
 tmp/**/*
+.vim/autoload/plug.vim
