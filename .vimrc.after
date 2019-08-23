@@ -36,6 +36,14 @@ set splitright
   " nnoremap <D-F> :Ag<SPACE>
 " endif
 
+" MUComplete
+set completeopt+=menuone,noselect,noinsert
+" set shortmess+=c   " Shut off completion messages
+" set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
+" let g:mucomplete#completion_delay = 1
+
+" RG
 if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
   let g:ctrlp_use_caching = 0
@@ -190,17 +198,17 @@ endif
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+" set wildmode=list:longest,list:full
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     endif
+" endfunction
+" inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <S-Tab> <c-n>
 
 " Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>

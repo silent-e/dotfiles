@@ -30,7 +30,8 @@ Plug 'tpope/vim-rails' ", { 'for': 'ruby' }
 " Plug 'stanangeloff/php.vim', { 'for': 'php' }
 
 " Completion
-Plug 'mattn/emmet-vim', { 'for': ['scss', 'eruby', 'html'] }
+Plug 'lifepillar/vim-mucomplete'
+Plug 'mattn/emmet-vim', { 'for': ['css', 'eruby', 'html', 'scss'] }
 
 " Make % match xml tags
 " Plug 'edsono/vim-matchit', { 'for': ['html', 'xml'] }
