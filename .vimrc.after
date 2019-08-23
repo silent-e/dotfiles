@@ -229,3 +229,6 @@ autocmd User fugitive
 
 "= leader mappings
 " map <leader>tf4 :!NOCOLOR=true bundle exec m %<CR>
+
+"==== syntax highlighting
+autocmd BufNewFile,BufRead *.thor set syntax=ruby
