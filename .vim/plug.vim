@@ -60,6 +60,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'jremmen/vim-ripgrep'
 
 " tag support
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
 " Rename files from within vim
