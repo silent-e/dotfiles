@@ -41,8 +41,8 @@ set completeopt+=menuone,noselect,noinsert
 " set shortmess+=c   " Shut off completion messages
 " set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
-" let g:mucomplete#completion_delay = 1
-let g:mucomplete#chains = { 'default': ['tags', 'incl', 'c-p'] }
+let g:mucomplete#completion_delay = 250
+let g:mucomplete#chains = { 'default': ['path', 'omni', 'keyn', 'tags', 'incl', 'c-p'] }
 set belloff+=ctrlg " If Vim beeps during completion
 
 " RG
