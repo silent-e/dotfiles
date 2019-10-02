@@ -1,4 +1,4 @@
-alias be='bundle exec'
+#alias be='bundle exec'   # provided by bundler zsh plugin
 alias ctags="`brew --prefix`/bin/ctags"
 alias dl='youtube-dl'
 alias gm-='git merge --no-ff -'

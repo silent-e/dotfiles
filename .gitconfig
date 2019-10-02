@@ -58,7 +58,8 @@
 	trustExitCode = true
 [user]
 	name = Matte Edens
-	email = matte@silent-e.com
+  ; set GIT_AUTHOR_EMAIL in .extra to override this value
+  email = matte@silent-e.com
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

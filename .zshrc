@@ -15,6 +15,7 @@ SPACESHIP_PROMPT_ORDER=(
   user
   dir
   git
+  rails
   ruby
   line_sep
   jobs
@@ -23,6 +24,10 @@ SPACESHIP_PROMPT_ORDER=(
 )
 SPACESHIP_DIR_TRUNC=0
 SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_RAILS_SHOW=true
+SPACESHIP_RAILS_COLOR="green"
+SPACESHIP_RAILS_SYMBOL="🚅 "
+SPACESHIP_RUBY_PREFIX=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

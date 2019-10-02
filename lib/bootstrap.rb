@@ -18,6 +18,15 @@ class Bootstrap
     end
   end
 
+  def check_setup
+    puts _color.decorate('Checking everything is setup before syncing', :cyan)
+    if !Dir.exist?(File.expand_path('~/.oh-my-zs'))
+      puts _color.decorate('You are missing OhMyZSH', :red)
+      return false
+    end
+    true
+  end
+
   def do_sync
     _do_sync(dry_run: false) do |result|
       if result.success?

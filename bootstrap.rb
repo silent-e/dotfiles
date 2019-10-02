@@ -16,6 +16,11 @@ end
 require_relative 'lib/bootstrap'
 bootstrapper = Bootstrap.new
 
+setup_okay = bootstrapper.check_setup
+if !setup_okay
+  exit
+end
+
 if bootstrapper.changes.none?
   puts 'Nothing to do'
   exit

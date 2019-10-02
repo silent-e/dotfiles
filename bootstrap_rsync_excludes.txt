@@ -4,4 +4,5 @@ bootstrap_rsync_excludes.txt
 .git/
 lib
 .ruby-version
+tags
 .vim/plugged
