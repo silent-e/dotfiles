@@ -20,7 +20,7 @@ class Bootstrap
 
   def check_setup
     puts _color.decorate('Checking everything is setup before syncing', :cyan)
-    if !Dir.exist?(File.expand_path('~/.oh-my-zs'))
+    if !Dir.exist?(File.expand_path('~/.oh-my-zsh'))
       puts _color.decorate('You are missing OhMyZSH', :red)
       return false
     end
