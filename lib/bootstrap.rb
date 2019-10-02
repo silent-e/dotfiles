@@ -20,10 +20,15 @@ class Bootstrap
 
   def check_setup
     puts _color.decorate('Checking everything is setup before syncing', :cyan)
+
+    # make sure oh-my-zsh is installed
     if !Dir.exist?(File.expand_path('~/.oh-my-zsh'))
       puts _color.decorate('You are missing OhMyZSH', :red)
       return false
     end
+
+    # check for the existence of the GIT_AUTHOR_EMAIL env variable in .extras
+
     true
   end
 
