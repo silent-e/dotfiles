@@ -17,6 +17,7 @@ SPACESHIP_PROMPT_ORDER=(
   git
   rails
   ruby
+  time
   line_sep
   jobs
   exit_code
@@ -28,6 +29,7 @@ SPACESHIP_RAILS_SHOW=true
 SPACESHIP_RAILS_COLOR="green"
 SPACESHIP_RAILS_SYMBOL="🚅 "
 SPACESHIP_RUBY_PREFIX=""
+SPACESHIP_TIME_SHOW=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

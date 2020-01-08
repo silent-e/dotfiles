@@ -9,7 +9,7 @@ class Bootstrap
 
   def ask_what_to_do
     list_changed_files
-    _prompt.select(_color.decorate("\nWhat do you want to do?", :yellow)) do |menu|
+    _prompt.select(_yellow("\nWhat do you want to do?")) do |menu|
       menu.enum '.'
       menu.default (@_previewed ? 2 : 1)
       menu.choice 'Preview', 'preview'
@@ -23,7 +23,7 @@ class Bootstrap
 
     # make sure oh-my-zsh is installed
     if !Dir.exist?(File.expand_path('~/.oh-my-zsh'))
-      puts _color.decorate('You are missing OhMyZSH', :red)
+      puts _red('You are missing OhMyZSH')
       return false
     end
 
@@ -35,9 +35,9 @@ class Bootstrap
   def do_sync
     _do_sync(dry_run: false) do |result|
       if result.success?
-        puts _color.decorate('Success!', :green)
+        puts _green('Success!')
       else
-        puts _color.decorate("Something went wrong! Here's the error…", :red)
+        puts _red("Something went wrong! Here's the error…")
         puts result.err
       end
     end
@@ -57,7 +57,7 @@ class Bootstrap
   end
 
   def stop
-    puts _color.decorate('Exiting', :green)
+    puts _color.green('Exiting')
   end
 
 private
@@ -66,12 +66,16 @@ private
     @_color ||= ::Pastel.new(enabled: true)
   end
 
+  def _green(text)
+    _color.green(text)
+  end
+
   def _load_changes
     [].tap do |files|
       # check for changed files
       _do_sync do |result|
         if !result.success?
-          puts _color.decorate('Unable to get changed files', :red)
+          puts _red('Unable to get changed files')
           return
         end
 
@@ -103,6 +107,10 @@ private
     @_prompt ||= TTY::Prompt.new
   end
 
+  def _red(text)
+    _color.red(text)
+  end
+
   def _runner
     @_runner ||= TTY::Command.new #(printer: :null)
   end
@@ -110,8 +118,8 @@ private
   def _update_spaceship_prompt
     library_dir = File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt")
     if !Dir.exists?(library_dir)
-      puts _color.decorate("The directory #{library_dir} does not exist", :red)
-      install_it = _prompt.select(_color.decorate("\nShould I install it?", :yellow)) do |menu|
+      puts _red("The directory #{library_dir} does not exist")
+      install_it = _prompt.select(_yellow("\nShould I install it?")) do |menu|
         menu.enum '.'
         menu.choice 'Yes'
         menu.choice 'No'
@@ -137,6 +145,10 @@ private
         end
       end
     end
+  end
+
+  def _yellow(text)
+    _color.yellow(text)
   end
 
 end
