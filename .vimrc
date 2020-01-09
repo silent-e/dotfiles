@@ -13,6 +13,7 @@ set number        " Show line numbers
 set ruler         " Show line and column number
 set noswapfile
 set laststatus=2  " Always display the status line
+set relativenumber
 
 " ***********************
 " syntax highlighting
