@@ -243,3 +243,6 @@ autocmd User fugitive
 
 "==== syntax highlighting
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
+
+"==== touchbar
+let g:macvim_default_touchbar_fullscreen=0
