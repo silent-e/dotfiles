@@ -85,9 +85,11 @@ SPACESHIP_TIME_SHOW=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   bundler
+  docker-compose
   fzf
   gem
   git
+  hacker-quotes
   history
   osx
   rbenv

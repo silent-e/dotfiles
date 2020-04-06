@@ -1,4 +1,4 @@
-export CDPATH=.:/Users/$(whoami):/Users/$(whoami)/projects/git
+export CDPATH=.:/Users/$(whoami):/Users/$(whoami)/projects/git:/Users/$(whoami)/projects/php
 export EDITOR='mvim -f'
 export LESS='-RFX'
 export CLICOLOR=1

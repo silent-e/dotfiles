@@ -1,0 +1,3 @@
+[submodule ".oh-my-zsh/custom/plugins/hacker-quotes"]
+	path = .oh-my-zsh/custom/plugins/hacker-quotes
+	url = https://github.com/oldratlee/hacker-quotes.git
