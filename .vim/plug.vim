@@ -69,6 +69,9 @@ Plug 'majutsushi/tagbar'
 " Make commenting easier
 Plug 'scrooloose/nerdcommenter'
 
+" Support ansi color codes - call :AnsiEsc
+Plug 'powerman/vim-plugin-AnsiEsc'
+
 " Adjust 'shiftwidth' and 'expandtab' heuristically based on the current file
 " Plug 'tpope/vim-sleuth'
 
