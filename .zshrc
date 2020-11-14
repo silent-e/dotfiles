@@ -1,3 +1,5 @@
+ZSH_DISABLE_COMPFIX=true
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -116,6 +118,7 @@ export ZSH_TMUX_ITERM2=true
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
