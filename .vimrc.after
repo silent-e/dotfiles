@@ -46,6 +46,9 @@ let g:mucomplete#completion_delay = 250
 let g:mucomplete#chains = { 'default': ['path', 'omni', 'keyn', 'tags', 'incl', 'c-p'] }
 set belloff+=ctrlg " If Vim beeps during completion
 
+" disable SQL dynamic completion
+let g:omni_sql_no_default_maps = 1
+
 " RG
 if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
