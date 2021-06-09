@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+puts 'Installing dependencies...'
 require 'bundler/inline'
 
 gemfile do
@@ -18,6 +19,7 @@ bootstrapper = Bootstrap.new
 
 setup_okay = bootstrapper.check_setup
 if !setup_okay
+  puts 'Setup not okay'
   exit
 end
 

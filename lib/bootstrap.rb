@@ -23,7 +23,7 @@ class Bootstrap
 
     # make sure oh-my-zsh is installed
     if !Dir.exist?(File.expand_path('~/.oh-my-zsh'))
-      puts _red('You are missing OhMyZSH')
+      puts _red('You are missing ohmyzsh. You must install it. https://ohmyz.sh/#install')
       return false
     end
 
@@ -85,7 +85,7 @@ private
       end
 
       # check for updated spaceship prompt
-      _update_spaceship_prompt
+      _check_spaceship_prompt
     end.compact
   end
 
@@ -97,7 +97,7 @@ private
     puts 'Checking status of changed files'
     dry_run_flag = dry_run ? '--dry-run' : nil
 
-    puts Dir.pwd
+    # puts Dir.pwd
     _runner.run!("rsync --exclude-from=bootstrap_rsync_excludes.txt #{dry_run_flag}", '-iaO', '--no-perms', '.', File.expand_path('~')).tap do |result|
       yield result
     end
@@ -112,10 +112,10 @@ private
   end
 
   def _runner
-    @_runner ||= TTY::Command.new #(printer: :null)
+    @_runner ||= TTY::Command.new(printer: :null)
   end
 
-  def _update_spaceship_prompt
+  def _check_spaceship_prompt
     library_dir = File.expand_path("~/.oh-my-zsh/custom/themes/spaceship-prompt")
     if !Dir.exists?(library_dir)
       puts _red("The directory #{library_dir} does not exist")
@@ -134,15 +134,15 @@ private
       end
     else
       puts 'Checking status of the prompt library'
-      _runner.run!(:git, 'fetch', chdir: library_dir) { |result| ap result }
-      result = _runner.run!(:git, 'status', '--porcelain')
-      ap result
-      if result.success?
-        if result.out.empty?
-          puts 'No updates to the Spaceship prompt.' 
-        else
-          puts 'The Spaceship prompt library has updated.'
-        end
+      _runner.run!(:git, 'fetch', chdir: library_dir) #{ |result| ap result }
+      result = _runner.run!(:git, 'status', '--porcelain', chdir: library_dir)
+      if result.failure? || result.out.split("\n").grep_v(/^\?\?/).empty?
+        puts _green('Spaceship prompt is up to date')
+        return
+      end
+
+      if _prompt.yes?('The Spaceship prompt library has updated. Should we update it?')
+        _runner.run!(:git, 'reset', '--hard', '@{u}', chdir: library_dir)
       end
     end
   end
