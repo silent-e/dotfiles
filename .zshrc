@@ -86,6 +86,7 @@ SPACESHIP_TIME_SHOW=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aliases
   bundler
   docker-compose
   fzf
@@ -94,6 +95,7 @@ plugins=(
   hacker-quotes
   history
   osx
+  rails
   rbenv
   tmux
   tmuxinator
